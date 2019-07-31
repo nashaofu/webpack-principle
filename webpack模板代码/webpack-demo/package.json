@@ -1,0 +1,19 @@
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "description": "webpack模板文件",
+  "main": "index.js",
+  "scripts": {
+    "build": "node webpack.config.js"
+  },
+  "keywords": [
+    "webpack",
+    "demo",
+    "template"
+  ],
+  "author": "nashaofu",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.38.0"
+  }
+}
