@@ -1,10 +1,32 @@
 # webpack 原理-webpack 模板代码
 
+## 目录
+
+1. [webpack-demo](./webpack-demo/READMD.md)
+
 ## webpack 模板代码是什么
 
 webpack 都打包项目后，我们可以看到在我们的业务代码外面被包裹在了一段代码里面，而这段代码就是 webpack 生成的 runtime 代码，这里我就简称为 webpack 模板代码了
 
 ## webpack 没有代码切割时生成文件
+
+- 示例目录结构
+
+```bash
+.
+├── README.md
+├── dist # 打包生成文件
+│   ├── 1.js # src/chunk.js => 1.js
+│   ├── app.js # src/index.js => app.js
+│   └── splitChunk.js # src/splitChunk.js => splitChunk.js
+├── package.json
+├── src
+│   ├── chunk.js # 动态加载的chunk
+│   ├── index.js # 非代码切割入口文件
+│   └── splitChunk.js # 代码切割入口文件
+├── webpack.config.js
+└── yarn.lock
+```
 
 - index.js
 
@@ -489,3 +511,7 @@ export default () => {
 - 异步的 js 文件加载成功后会制动执行代码，执行代码为`window['webpackJsonp'].push`方法，实际执行的函数为`splitChunk.js`中的`webpackJsonpCallback`方法
 - 简单执行流程如下
   ![chunk执行流程](./chunk执行流程.png)
+
+## 提取 webpack runtime 到单独文件
+
+设置 webpack 配置`optimization.runtimeChunk`为`true`，即可把 webpack 生成的模板文件到单独的文件里去，其他所有文件都会分离为 jsonp 形式的文件

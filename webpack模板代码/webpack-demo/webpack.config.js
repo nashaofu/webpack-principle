@@ -12,8 +12,7 @@ function getConfig(name, file) {
       filename: '[name].js'
     },
     optimization: {
-      minimize: false,
-      runtimeChunk: true
+      minimize: false
     },
     devtool: false
   }
