@@ -425,38 +425,7 @@ export default () => {
 ;(function(modules) {
   // js加载后执行的回调
   // 一个chunk钟可以包含很多module
-  function webpackJsonpCallback(data) {
-    var chunkIds = data[0]
-    var moreModules = data[1]
-
-    // add "moreModules" to the modules object,
-    // then flag all "chunkIds" as loaded and fire callback
-    var moduleId,
-      chunkId,
-      i = 0,
-      resolves = []
-    for (; i < chunkIds.length; i++) {
-      chunkId = chunkIds[i]
-      // 让在本chunk中的module都resolve掉
-      if (installedChunks[chunkId]) {
-        resolves.push(installedChunks[chunkId][0])
-      }
-      installedChunks[chunkId] = 0
-    }
-
-    // 读取chunk包含的所有模块
-    for (moduleId in moreModules) {
-      if (Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-        modules[moduleId] = moreModules[moduleId]
-      }
-    }
-    if (parentJsonpFunction) parentJsonpFunction(data)
-
-    // 依次resolve
-    while (resolves.length) {
-      resolves.shift()()
-    }
-  }
+  function webpackJsonpCallback(data) {}
 
   // 已经被加载的chunk
   // chunk值为0表示已经加载过了
@@ -518,3 +487,5 @@ export default () => {
 
 - 代码切割后不同文件共享模块实现是通过全局变量`webpackJsonp`来实现的
 - 异步的 js 文件加载成功后会制动执行代码，执行代码为`window['webpackJsonp'].push`方法，实际执行的函数为`splitChunk.js`中的`webpackJsonpCallback`方法
+- 简单执行流程如下
+  ![chunk执行流程](./chunk执行流程.png)
