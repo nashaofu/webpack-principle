@@ -520,7 +520,7 @@ export default () => {
 
 ## 实现一个简单的 webpack 模块加载功能
 
-实现`__webpack_require__`和`window['webpackJsonp'].push`方法
+实现`__webpack_require__`和`window['webpackJsonp'].push`方法，具体代码在[webpack-require](./webpack-require/README.md)中查看
 
 - index.js
 
