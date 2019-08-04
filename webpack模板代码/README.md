@@ -3,6 +3,7 @@
 ## 目录
 
 1. [webpack-demo](./webpack-demo/READMD.md)
+2. [webpack-require](./webpack-require/README.md)
 
 ## webpack 模板代码是什么
 
