@@ -215,7 +215,8 @@ requirejs.config({
     jquery: './lib/jquery‘,
     lodash: './lib/lodash‘
   }
-})require(['jquery', './js/time.js'], ($, time) => {
+})
+require(['jquery', './js/time.js'], ($, time) => {
   $('#time').text('TIME: ' + time.getTime())
   setInterval(() => {
    $('#time').text('TIME: ' + time.getTime())
