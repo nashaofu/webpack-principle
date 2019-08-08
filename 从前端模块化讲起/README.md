@@ -215,7 +215,7 @@ requirejs.config({
     jquery: './lib/jquery‘,
     lodash: './lib/lodash‘
   }
-})
+})
 require(['jquery', './js/time.js'], ($, time) => {
   $('#time').text('TIME: ' + time.getTime())
   setInterval(() => {
@@ -424,7 +424,7 @@ index.mjs
 // index.mjs
 import * as mod from './lib’
 
-// 此处输出值？console.log(mod.counter)
+// 此处输出值？console.log(mod.counter)
 mod.incCounter()
 
 // 此处输出值？
