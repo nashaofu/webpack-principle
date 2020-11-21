@@ -12,7 +12,7 @@
 - AMD 规范，requirejs 实现的规范
 - CMD 规范，seajs 实现的规范， seajs 与 requirejs 实现原理有很多相似的地方 u ES Modules，当前 js 标准模块化方案
 
-注意:cjs、amd、cmd、 ES Modules 都是只规范，所以可能对应有多种实现
+注意:cjs、amd、cmd、 ES Modules 都是指规范，所以可能对应有多种实现
 
 下面就对各个模块化方案做简单说明
 
@@ -32,7 +32,8 @@
 无模块化时代的问题
 
 - 污染全局作用域
-- 不便于拆分逻辑，维护成本高 • 依赖关系不明显
+- 不便于拆分逻辑，维护成本高
+- 依赖关系不明显
 - 复用性差
 
 ## CommonJS 规范
@@ -71,14 +72,16 @@ index.js
 
 ```js
 // index.js
-const mod = require('./lib') // 此处输出值？
+const mod = require('./lib')
+// 此处输出值？
 console.log(mod.counter)
-mod.incCounter() // 此处输出值？
+mod.incCounter()
+// 此处输出值？
 console.log(mod.counter)
 ```
 
-- equire 命令第一次加载该脚本，就会执行整个脚本，然后在内存生成一个对象，下次加载会直接从缓存中取数据
-- 以下是一个循环引用的例子，请问执行 node main.js 后会输出什么？
+- require 函数第一次加载该脚本，就会执行整个脚本，然后在内存生成一个对象，下次加载会直接从缓存中取数据
+- 以下是一个循环引用的例子，请问执行`node main.js`后会输出什么？
 
 a.js
 
@@ -121,6 +124,7 @@ console.log('in main, a.done = %j, b.done = %j', a.done, b.done)
 - requirejs 是在浏览器中运行的，所有一些基础库需要先配置，以方便其他库调用，可以理解为 CommonJS 中的 node_modules 下的包。业务模块也可定义在其中，可认为是路径别名。paths 中的路径不能包含扩展名。
 
 ```js
+// 后面再具体讲解里面参数的作用
 require.config({
   paths: {
     // 如果第一个加载失败就会加载第二个
@@ -144,6 +148,7 @@ require.config({
 define(id?, dependencies?, factory);
 
 ```
+依赖可以使用上面的config中定义paths中的key，这样就可以缩短路径，同时也便于第三方库加载依赖，例如jQuery插件打包为AMD格式的文件，引入jQuery会使用define(['jquery'], function (){ })的形式，而不用关心jQuery的真实路径​。​
 
 ```js
 define(['jquery'], function($) {
@@ -274,7 +279,8 @@ define(['jquery'], $ => {
 // 错误！
 define(function(req) {
   // ...
-}) // 正确！
+}) 
+// 正确！
 define(function(require) {
   // ...
 })
@@ -424,12 +430,11 @@ index.mjs
 // index.mjs
 import * as mod from './lib’
 
-// 此处输出值？console.log(mod.counter)
-mod.incCounter()
-
 // 此处输出值？
 console.log(mod.counter)
-
+mod.incCounter()
+// 此处输出值？
+console.log(mod.counter)
 ```
 
 ### 循环引用
@@ -466,7 +471,7 @@ import './a.mjs'
 
 - 在所有的模块规范中都存在循环依赖问题，解决依赖循环的方式都相似，几乎都采用惰性导入的方式来解决。
 - 如下两个文件存在循环引用，当执行 node --experimental-modules a.mjs 时，会报错说 b 未定义，这就是由于循环依赖导致的，如果不使用 b 则不会报错，修改方案如下。其他的模块循环引用也可按照此方法进行修改。
-- CommonJS 也可以使用先导出自身，再引入其他模块的方式尽心避免。同时也可以把 require 放入到函数体中，即在调用的时后才去加载依赖
+- CommonJS 也可以使用先导出自身，再引入其他模块的方式进行避免。同时也可以把 require 放入到函数体中，即在调用的时候才去加载依赖
 
 ![循环依赖](./循环依赖.png)
 
