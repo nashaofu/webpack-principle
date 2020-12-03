@@ -6,7 +6,6 @@ webpack 原理-webpack 模板代码演示示例代码
 
 ```bash
 yarn build # 打包文件
-``
 ```
 
 ## 文件

@@ -39,7 +39,7 @@ console.log('app')
 - build 之后的文件
 
 ```js
-;(function(modules) {
+;(function (modules) {
   // webpackBootstrap
   // The module cache
   var installedModules = {}
@@ -74,14 +74,14 @@ console.log('app')
   __webpack_require__.c = installedModules
 
   // define getter function for harmony exports
-  __webpack_require__.d = function(exports, name, getter) {
+  __webpack_require__.d = function (exports, name, getter) {
     if (!__webpack_require__.o(exports, name)) {
       Object.defineProperty(exports, name, { enumerable: true, get: getter })
     }
   }
 
   // define __esModule on exports
-  __webpack_require__.r = function(exports) {
+  __webpack_require__.r = function (exports) {
     if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
       Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' })
     }
@@ -93,7 +93,7 @@ console.log('app')
   // mode & 2: merge all properties of value into the ns
   // mode & 4: return value when already ns object
   // mode & 8|1: behave like require
-  __webpack_require__.t = function(value, mode) {
+  __webpack_require__.t = function (value, mode) {
     if (mode & 1) value = __webpack_require__(value)
     if (mode & 8) return value
     if (mode & 4 && typeof value === 'object' && value && value.__esModule) return value
@@ -105,7 +105,7 @@ console.log('app')
         __webpack_require__.d(
           ns,
           key,
-          function(key) {
+          function (key) {
             return value[key]
           }.bind(null, key)
         )
@@ -113,7 +113,7 @@ console.log('app')
   }
 
   // getDefaultExport function for compatibility with non-harmony modules
-  __webpack_require__.n = function(module) {
+  __webpack_require__.n = function (module) {
     var getter =
       module && module.__esModule
         ? function getDefault() {
@@ -127,7 +127,7 @@ console.log('app')
   }
 
   // Object.prototype.hasOwnProperty.call
-  __webpack_require__.o = function(object, property) {
+  __webpack_require__.o = function (object, property) {
     return Object.prototype.hasOwnProperty.call(object, property)
   }
 
@@ -138,7 +138,7 @@ console.log('app')
   return __webpack_require__((__webpack_require__.s = 0))
 })([
   /* 0 */
-  function(module, exports) {
+  function (module, exports) {
     /* 这里是index.js打包后的代码 */
     console.log('app')
   }
@@ -152,7 +152,7 @@ console.log('app')
 ### 简化一下以上代码可以如下
 
 ```js
-;(function(modules) {
+;(function (modules) {
   // 用于缓存已经加载过的模块
   var installedModules = {}
 
@@ -183,7 +183,7 @@ console.log('app')
   return __webpack_require__(0)
 })([
   /* 0 */
-  function(module, exports) {
+  function (module, exports) {
     /* 这里是index.js打包后的代码 */
     console.log('app')
   }
@@ -214,7 +214,7 @@ export default () => {
 - build 后生成`splitChunk.js`文件
 
 ```js
-;(function(modules) {
+;(function (modules) {
   // webpackBootstrap
   // install a JSONP callback for chunk loading
   function webpackJsonpCallback(data) {
@@ -300,7 +300,7 @@ export default () => {
         promises.push(installedChunkData[2])
       } else {
         // setup Promise in chunk cache
-        var promise = new Promise(function(resolve, reject) {
+        var promise = new Promise(function (resolve, reject) {
           installedChunkData = installedChunks[chunkId] = [resolve, reject]
         })
         promises.push((installedChunkData[2] = promise))
@@ -318,7 +318,7 @@ export default () => {
 
         // create error before stack unwound to get useful stacktrace later
         var error = new Error()
-        onScriptComplete = function(event) {
+        onScriptComplete = function (event) {
           // avoid mem leaks in IE.
           script.onerror = script.onload = null
           clearTimeout(timeout)
@@ -336,7 +336,7 @@ export default () => {
             installedChunks[chunkId] = undefined
           }
         }
-        var timeout = setTimeout(function() {
+        var timeout = setTimeout(function () {
           onScriptComplete({ type: 'timeout', target: script })
         }, 120000)
         script.onerror = script.onload = onScriptComplete
@@ -353,14 +353,14 @@ export default () => {
   __webpack_require__.c = installedModules
 
   // define getter function for harmony exports
-  __webpack_require__.d = function(exports, name, getter) {
+  __webpack_require__.d = function (exports, name, getter) {
     if (!__webpack_require__.o(exports, name)) {
       Object.defineProperty(exports, name, { enumerable: true, get: getter })
     }
   }
 
   // define __esModule on exports
-  __webpack_require__.r = function(exports) {
+  __webpack_require__.r = function (exports) {
     if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
       Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' })
     }
@@ -372,7 +372,7 @@ export default () => {
   // mode & 2: merge all properties of value into the ns
   // mode & 4: return value when already ns object
   // mode & 8|1: behave like require
-  __webpack_require__.t = function(value, mode) {
+  __webpack_require__.t = function (value, mode) {
     if (mode & 1) value = __webpack_require__(value)
     if (mode & 8) return value
     if (mode & 4 && typeof value === 'object' && value && value.__esModule) return value
@@ -384,7 +384,7 @@ export default () => {
         __webpack_require__.d(
           ns,
           key,
-          function(key) {
+          function (key) {
             return value[key]
           }.bind(null, key)
         )
@@ -392,7 +392,7 @@ export default () => {
   }
 
   // getDefaultExport function for compatibility with non-harmony modules
-  __webpack_require__.n = function(module) {
+  __webpack_require__.n = function (module) {
     var getter =
       module && module.__esModule
         ? function getDefault() {
@@ -406,7 +406,7 @@ export default () => {
   }
 
   // Object.prototype.hasOwnProperty.call
-  __webpack_require__.o = function(object, property) {
+  __webpack_require__.o = function (object, property) {
     return Object.prototype.hasOwnProperty.call(object, property)
   }
 
@@ -414,7 +414,7 @@ export default () => {
   __webpack_require__.p = ''
 
   // on error function for async loading
-  __webpack_require__.oe = function(err) {
+  __webpack_require__.oe = function (err) {
     console.error(err)
     throw err
   }
@@ -430,7 +430,7 @@ export default () => {
   return __webpack_require__((__webpack_require__.s = 0))
 })([
   /* 0 */
-  function(module, exports, __webpack_require__) {
+  function (module, exports, __webpack_require__) {
     __webpack_require__
       .e(1)
       .then(__webpack_require__.bind(null, 1))
@@ -446,7 +446,7 @@ export default () => {
 - 简化后代码如下
 
 ```js
-;(function(modules) {
+;(function (modules) {
   // js加载后执行的回调
   // 一个chunk钟可以包含很多module
   function webpackJsonpCallback(data) {}
@@ -474,7 +474,7 @@ export default () => {
   return __webpack_require__((__webpack_require__.s = 0))
 })([
   /* 0 */
-  function(module, exports, __webpack_require__) {
+  function (module, exports, __webpack_require__) {
     __webpack_require__
       .e(1) // 插入异步js的script标签
       // 加载的js加载成功后自动执行webpackJsonp.push方法
@@ -498,7 +498,7 @@ export default () => {
     ,
     /* 0 */
     /* 1 */
-    function(module, __webpack_exports__, __webpack_require__) {
+    function (module, __webpack_exports__, __webpack_require__) {
       'use strict'
       __webpack_require__.r(__webpack_exports__)
       __webpack_exports__['default'] = () => {
@@ -525,7 +525,7 @@ export default () => {
 - index.js
 
 ```js
-;(function(modules) {
+;(function (modules) {
   // 缓存已经被require的模块
   const installedModules = {}
   // 加载模块
@@ -584,7 +584,7 @@ export default () => {
   for (let i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i])
 
   // 插入script标签
-  __webpack_require__.e = function(chunkId) {
+  __webpack_require__.e = function (chunkId) {
     const promises = []
     let installedChunkData = installedChunks[chunkId]
     // 已经缓存就直接返回
@@ -610,7 +610,7 @@ export default () => {
       script.src = chunksSrc[chunkId]
 
       // js加载完成事件
-      onScriptComplete = function(event) {
+      onScriptComplete = function (event) {
         clearTimeout(timeout)
         // 避免IE内存泄漏
         script.onerror = script.onload = null
@@ -634,7 +634,7 @@ export default () => {
   // 加载入口文件
   return __webpack_require__('./index.js')
 })({
-  './index.js': function(module, exports, __webpack_require__) {
+  './index.js': function (module, exports, __webpack_require__) {
     console.log('I am index.js')
 
     // 加载./chunk.js
@@ -670,7 +670,7 @@ export default () => {
 ;(window['webpackJsonp'] = window['webpackJsonp'] || []).push([
   ['./chunk.js'],
   {
-    './chunk.js': function(module, __webpack_exports__, __webpack_require__) {
+    './chunk.js': function (module, __webpack_exports__, __webpack_require__) {
       'use strict'
       __webpack_exports__['default'] = () => {
         console.log('I am chunk')
@@ -687,13 +687,13 @@ export default () => {
 ;(window['webpackJsonp'] = window['webpackJsonp'] || []).push([
   ['./chunks-1.js', './chunks-2.js'],
   {
-    './chunks-1.js': function(module, __webpack_exports__, __webpack_require__) {
+    './chunks-1.js': function (module, __webpack_exports__, __webpack_require__) {
       'use strict'
       __webpack_exports__['default'] = () => {
         console.log('I am chunks-1')
       }
     },
-    './chunks-2.js': function(module, __webpack_exports__, __webpack_require__) {
+    './chunks-2.js': function (module, __webpack_exports__, __webpack_require__) {
       'use strict'
       __webpack_exports__['default'] = () => {
         console.log('I am chunks-2')
